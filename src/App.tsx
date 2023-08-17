@@ -12,6 +12,8 @@ import polyglotI18nProvider from 'ra-i18n-polyglot';
 import chineseMessages from '@haxqer/ra-language-chinese';
 const i18nProvider = polyglotI18nProvider(() => chineseMessages, 'zh');
 
+import { Analytics } from '@vercel/analytics/react';
+
 export const App = () => (
     <Admin
         i18nProvider={i18nProvider}
@@ -21,7 +23,9 @@ export const App = () => (
 
         <Resource name="rausers" list={UserList} edit={EditGuesser} show={ShowGuesser} />
         
+        <Analytics />
     </Admin>
+
 );
 
     
