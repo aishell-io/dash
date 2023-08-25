@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import PropTypes from 'prop-types';
-import { Button, CardContent, CircularProgress } from '@mui/material';
+import { Button, CardContent, CircularProgress, Typography, Link } from '@mui/material';
 import {
     Form,
     required,
@@ -92,6 +92,11 @@ export const LoginForm = (props: LoginFormProps) => {
                         translate('ra.auth.sign_in')
                     )}
                 </Button>
+                <Typography>
+                    <Link href="/register" variant="body2">
+                        {translate('ra.auth.new_account')}
+                    </Link>
+                </Typography>
             </CardContent>
         </StyledForm>
     );
