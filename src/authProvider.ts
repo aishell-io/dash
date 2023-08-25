@@ -2,10 +2,32 @@ import { AuthProvider } from "react-admin";
 
 export const authProvider: AuthProvider = {
   // authentication
-    login: ({ email, username }) => {
-      localStorage.setItem("username", username);
-      // accept all username/password combinations
-      return Promise.resolve();
+    login: ({ username, password }) => {
+      const url = 'https://packdir.com/api/v1/login';
+      console.log('dadfadf')
+      console.log('username: ', username)
+      console.log('password: ', password)
+      const request = new Request(url, {
+        method: 'POST',
+        body: JSON.stringify({ email: username, password }),
+        headers: new Headers({ 'Content-Type': 'application/json' }),
+      });
+
+      return fetch(request)
+        .then(response => {
+          if (response.status < 200 || response.status >= 300) {
+            throw new Error(response.statusText);
+          }
+          return response.json();
+        })
+        .then(({ access_token }) => {
+          localStorage.setItem('access_token', access_token);
+        })
+        .catch(() => {
+          throw new Error('Network error')
+        });
+      //localStorage.setItem("username", username);
+      //return Promise.resolve();
     },
     checkError: ({ status }) => {
       if (status === 401 || status === 403) {
@@ -15,7 +37,8 @@ export const authProvider: AuthProvider = {
       return Promise.resolve();
     },
     checkAuth: () => {
-      return localStorage.getItem("username")
+      console.log('check it 817')
+      return localStorage.getItem("access_token")
         ? Promise.resolve()
         : Promise.reject();
     },
