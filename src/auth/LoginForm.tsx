@@ -93,7 +93,7 @@ export const LoginForm = (props: LoginFormProps) => {
                     )}
                 </Button>
                 <Typography>
-                    <Link href="/register" variant="body2">
+                    <Link href="/#/register" variant="body2">
                         {translate('ra.auth.new_account')}
                     </Link>
                 </Typography>

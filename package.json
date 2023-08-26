@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@haxqer/ra-language-chinese": "^4.8.1-beta3",
-    "@packdir/language-en": "^0.1.1",
+    "@packdir/language-en": "^0.1.4",
     "@vercel/analytics": "^1.0.2",
     "ra-data-json-server": "^4.9.2",
     "ra-data-simple-rest": "^4.13.0",

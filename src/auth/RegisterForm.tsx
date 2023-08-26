@@ -50,10 +50,11 @@ export const RegisterForm = (props: LoginFormProps) => {
             });
         */
 
-        const url = 'https://packdir.com/api/v1/auth/register';
+        const url = 'https://packdir.com/api/backre/register';
         const options = {}
         fetchUtils.fetchJson(url, options)
-            .then(() => {
+            .then((ret) => {
+                console.log('828:', ret);
                 setLoading(false);
             })
             .catch(error => {
