@@ -51,7 +51,11 @@ export const RegisterForm = (props: LoginFormProps) => {
         */
 
         const url = 'https://packdir.com/api/backre/register';
-        const options = {}
+        const options = {
+            method: 'POST',
+            body: JSON.stringify(values),
+        }
+        console.log('options:', options)
         fetchUtils.fetchJson(url, options)
             .then((ret) => {
                 console.log('828:', ret);
