@@ -5,6 +5,9 @@ import { Route } from 'react-router-dom';
 import { UserList } from './users';
 import chatDataProvider from './chat-data-provider'
 
+// Chat
+import ChatPage from './chat/ChatPage';
+
 // [Sending Credentials To The API](https://marmelab.com/react-admin/Authentication.html)
 
 import simpleRestProvider from 'ra-data-simple-rest';
@@ -49,6 +52,7 @@ export const App = () => (
 
         <CustomRoutes noLayout>
             <Route path="/register" element={<Register />} />
+            <Route path="/chat" element={<ChatPage />} />
         </CustomRoutes>
 
         <Resource name="rausers" list={UserList} edit={EditGuesser} show={ShowGuesser} />
