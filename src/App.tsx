@@ -52,6 +52,9 @@ export const App = () => (
 
         <CustomRoutes noLayout>
             <Route path="/register" element={<Register />} />
+        </CustomRoutes>
+
+        <CustomRoutes>
             <Route path="/chat" element={<ChatPage />} />
         </CustomRoutes>
 
