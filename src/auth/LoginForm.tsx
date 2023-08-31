@@ -128,6 +128,7 @@ const StyledForm = styled(Form, {
     },
     [`& .${LoginFormClasses.link}`]: {
         margin: theme.spacing(0.3),
+        marginTop: theme.spacing(3),
     },
 }));
 
