@@ -93,7 +93,7 @@ export const LoginForm = (props: LoginFormProps) => {
                     )}
                 </Button>
                 <Typography
-                    className={LoginFormClasses.link}
+                    className={LoginFormClasses.newaccount}
                 >
                     <Link href="/#/register" variant="body2">
                         {translate('ra.auth.new_account')}
@@ -110,7 +110,7 @@ export const LoginFormClasses = {
     content: `${PREFIX}-content`,
     button: `${PREFIX}-button`,
     icon: `${PREFIX}-icon`,
-    link: `${PREFIX}-link`,
+    newaccount: `${PREFIX}-new-account-link`,
 };
 
 const StyledForm = styled(Form, {
@@ -126,8 +126,7 @@ const StyledForm = styled(Form, {
     [`& .${LoginFormClasses.icon}`]: {
         margin: theme.spacing(0.3),
     },
-    [`& .${LoginFormClasses.link}`]: {
-        margin: theme.spacing(0.3),
+    [`& .${LoginFormClasses.newaccount}`]: {
         marginTop: theme.spacing(3),
     },
 }));
