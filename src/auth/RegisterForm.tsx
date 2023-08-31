@@ -115,7 +115,7 @@ export const RegisterForm = (props: LoginFormProps) => {
                     label={translate('ra.auth.password')}
                     type="password"
                     autoComplete="current-password"
-                    validate={[required(), confirmPassword]}
+                    validate={required()}
                     fullWidth
                 />
                 <TextInput
@@ -123,7 +123,7 @@ export const RegisterForm = (props: LoginFormProps) => {
                     label={translate('ra.auth.confirm_password')}
                     type="password"
                     autoComplete="current-password"
-                    validate={required()}
+                    validate={[required(), confirmPassword]}
                     fullWidth
                 />
 
