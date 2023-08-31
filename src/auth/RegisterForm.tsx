@@ -15,6 +15,8 @@ import { TextInput, fetchUtils } from 'react-admin';
 
 // Validation functions
 const confirmPassword = (value: string, allValues: any) => {
+    console.log('confirmPassword:831: ', value)
+    console.log('confirmPassword:all: ', allValues)
     if (value !== allValues.password) {
         return 'ra.validation.password_mismatch';
     }
