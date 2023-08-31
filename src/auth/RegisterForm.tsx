@@ -13,6 +13,14 @@ import useRegister from '../register/useRegister'
 //import { TextInput } from '../input';
 import { TextInput, fetchUtils } from 'react-admin';
 
+// Validation functions
+const confirmPassword = (value: string, allValues: any) => {
+    if (value !== allValues.password) {
+        return 'ra.validation.password_mismatch';
+    }
+    return undefined;
+};
+
 export const RegisterForm = (props: LoginFormProps) => {
     const { redirectTo, className } = props;
     const [loading, setLoading] = useSafeSetState(false);
@@ -105,7 +113,7 @@ export const RegisterForm = (props: LoginFormProps) => {
                     label={translate('ra.auth.password')}
                     type="password"
                     autoComplete="current-password"
-                    validate={required()}
+                    validate={[required(), confirmPassword]}
                     fullWidth
                 />
                 <TextInput
@@ -140,7 +148,7 @@ export const RegisterForm = (props: LoginFormProps) => {
     );
 };
 
-const PREFIX = 'RaLoginForm';
+const PREFIX = 'RaRegisterForm';
 
 export const LoginFormClasses = {
     content: `${PREFIX}-content`,
