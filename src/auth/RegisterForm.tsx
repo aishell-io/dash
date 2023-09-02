@@ -11,12 +11,10 @@ import {
 } from 'ra-core';
 import useRegister from '../register/useRegister'
 //import { TextInput } from '../input';
-import { TextInput, fetchUtils } from 'react-admin';
+import { TextInput, fetchUtils, useRedirect } from 'react-admin';
 
 // Validation functions
 const confirmPassword = (value: string, allValues: any) => {
-    console.log('confirmPassword:831: ', value)
-    console.log('confirmPassword:all: ', allValues)
     if (value !== allValues.password) {
         return 'ra.validation.password_mismatch';
     }
@@ -65,11 +63,11 @@ export const RegisterForm = (props: LoginFormProps) => {
             method: 'POST',
             body: JSON.stringify(values),
         }
-        console.log('options:', options)
         fetchUtils.fetchJson(url, options)
             .then((ret) => {
-                console.log('828:', ret);
                 setLoading(false);
+                const redirect = useRedirect();
+                redirect('/login');
             })
             .catch(error => {
                 setLoading(false);
