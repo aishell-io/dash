@@ -74,7 +74,7 @@ export const RegisterForm = (props: LoginFormProps) => {
                         'info'
                     );
                 } else {
-                    redirect('/login');
+                    //redirect('/login');
                 }
             })
             .catch(error => {
