@@ -66,8 +66,16 @@ export const RegisterForm = (props: LoginFormProps) => {
         }
         fetchUtils.fetchJson(url, options)
             .then((ret) => {
+                console.log('902:ret: ', ret)
                 setLoading(false);
-                redirect('/login');
+                if (ret.body.statusCode === 0) {
+                    notify(
+                        'ra.auth.sign_up_success',
+                        'info'
+                    );
+                } else {
+                    redirect('/login');
+                }
             })
             .catch(error => {
                 setLoading(false);
