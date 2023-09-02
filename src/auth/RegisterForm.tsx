@@ -27,6 +27,7 @@ export const RegisterForm = (props: LoginFormProps) => {
     const register = useRegister();
     const translate = useTranslate();
     const notify = useNotify();
+    const redirect = useRedirect();
 
     const submit = (values: FormData) => {
         setLoading(true);
@@ -66,7 +67,6 @@ export const RegisterForm = (props: LoginFormProps) => {
         fetchUtils.fetchJson(url, options)
             .then((ret) => {
                 setLoading(false);
-                const redirect = useRedirect();
                 redirect('/login');
             })
             .catch(error => {
