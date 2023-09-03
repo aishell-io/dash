@@ -5,6 +5,8 @@ import { Button, CardContent, CircularProgress } from '@mui/material';
 import {
     Form,
     required,
+    email,
+    minLength,
     useTranslate,
     useNotify,
     useSafeSetState,
@@ -28,6 +30,10 @@ export const RegisterForm = (props: LoginFormProps) => {
     const translate = useTranslate();
     const notify = useNotify();
     const redirect = useRedirect();
+
+    const validateEmail = [required(), email()];
+    const validatePassword = [required(), minLength(6)];
+    const validateConfirmPassword = [required(), confirmPassword, minLength(6)];
 
     const submit = (values: FormData) => {
         setLoading(true);
@@ -59,7 +65,7 @@ export const RegisterForm = (props: LoginFormProps) => {
             });
         */
 
-        const url = 'https://packdir.com/api/backre/register';
+        const url = 'https://packdir.com/api/aishellio/register';
         const options = {
             method: 'POST',
             body: JSON.stringify(values),
@@ -68,13 +74,11 @@ export const RegisterForm = (props: LoginFormProps) => {
             .then((ret) => {
                 console.log('902:ret: ', ret)
                 setLoading(false);
-                if (ret.body.statusCode === 0) {
-                    notify(
-                        'ra.auth.sign_up_success',
-                        'info'
-                    );
+                if (ret.json.statusCode === 0) {
+                    redirect('/login');
+                } else if (ret.json.statusCode === 2) {
+                    notify('ra.auth.sign_in_error', { type: 'error' })
                 } else {
-                    //redirect('/login');
                 }
             })
             .catch(error => {
@@ -113,7 +117,7 @@ export const RegisterForm = (props: LoginFormProps) => {
                     source="email"
                     label={translate('ra.auth.email')}
                     autoComplete="email"
-                    validate={required()}
+                    validate={validateEmail}
                     fullWidth
                 />
                 <TextInput
@@ -121,7 +125,7 @@ export const RegisterForm = (props: LoginFormProps) => {
                     label={translate('ra.auth.password')}
                     type="password"
                     autoComplete="current-password"
-                    validate={required()}
+                    validate={validatePassword}
                     fullWidth
                 />
                 <TextInput
@@ -129,7 +133,7 @@ export const RegisterForm = (props: LoginFormProps) => {
                     label={translate('ra.auth.confirm_password')}
                     type="password"
                     autoComplete="current-password"
-                    validate={[required(), confirmPassword]}
+                    validate={validateConfirmPassword}
                     fullWidth
                 />
 
