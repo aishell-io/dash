@@ -84,8 +84,10 @@ export const RegisterForm = (props: LoginFormProps) => {
                 if (ret.json.statusCode === S_SUCCESS) {
                     redirect('/login');
                 } else if (ret.json.statusCode === S_EMAIL_EXISTS) {
+                    console.log('902:ret.json.statusCode: ', ret.json.statusCode)
                     notify('ra.auth.sign_in_error', { type: 'error' })
                 } else {
+                    console.log('nothing')
                 }
             })
             .catch(error => {
