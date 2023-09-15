@@ -79,13 +79,12 @@ export const RegisterForm = (props: LoginFormProps) => {
         fetchUtils.fetchJson(url, options)
             .then((ret) => {
                 console.log('902:ret: ', ret)
-                console.log('902:ret.json: ', ret.json)
                 setLoading(false);
                 if (ret.json.statusCode === S_SUCCESS) {
                     redirect('/login');
                 } else if (ret.json.statusCode === S_EMAIL_EXISTS) {
-                    console.log('902:ret.json.statusCode: ', ret.json.statusCode)
-                    notify('ra.auth.sign_in_error', { type: 'error' })
+                    console.log('915:ret.json.statusCode: ', ret.json.statusCode)
+                    notify('ra.auth.sign_in_error', { type: 'error', messageArgs: { _:'Email already exists' } })
                 } else {
                     console.log('nothing')
                 }
