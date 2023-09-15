@@ -15,6 +15,12 @@ import useRegister from '../register/useRegister'
 //import { TextInput } from '../input';
 import { TextInput, fetchUtils, useRedirect } from 'react-admin';
 
+import {
+    API_REGISTER,
+    S_SUCCESS,
+    S_EMAIL_EXISTS,
+} from '../constants';
+
 // Validation functions
 const confirmPassword = (value: string, allValues: any) => {
     if (value !== allValues.password) {
@@ -65,7 +71,7 @@ export const RegisterForm = (props: LoginFormProps) => {
             });
         */
 
-        const url = 'https://packdir.com/api/aishellio/register';
+        const url = API_REGISTER;
         const options = {
             method: 'POST',
             body: JSON.stringify(values),
@@ -73,10 +79,11 @@ export const RegisterForm = (props: LoginFormProps) => {
         fetchUtils.fetchJson(url, options)
             .then((ret) => {
                 console.log('902:ret: ', ret)
+                console.log('902:ret.json: ', ret.json)
                 setLoading(false);
-                if (ret.json.statusCode === 0) {
+                if (ret.json.statusCode === S_SUCCESS) {
                     redirect('/login');
-                } else if (ret.json.statusCode === 2) {
+                } else if (ret.json.statusCode === S_EMAIL_EXISTS) {
                     notify('ra.auth.sign_in_error', { type: 'error' })
                 } else {
                 }
