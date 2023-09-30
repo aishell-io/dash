@@ -21,7 +21,7 @@ const httpClient = (url: string, options: any = {}) => {
     return fetchUtils.fetchJson(url, options);
 }
 
-const apiRootUrl = 'https://packdir.com';
+const apiRootUrl = 'https://packdir.com/api/aishell/';
 const dataProvider = simpleRestProvider(apiRootUrl, httpClient);
 //const dataProvider = chatDataProvider(apiRootUrl, httpClient);
 
@@ -58,8 +58,8 @@ export const App = () => (
             <Route path="/chat" element={<ChatPage />} />
         </CustomRoutes>
 
-        <Resource name="rausers" list={UserList} edit={EditGuesser} show={ShowGuesser} />
         <Resource name="sessions" list={UserList} edit={EditGuesser} show={ShowGuesser} />
+        <Resource name="rausers" list={UserList} edit={EditGuesser} show={ShowGuesser} />
         
         <Analytics />
     </Admin>
