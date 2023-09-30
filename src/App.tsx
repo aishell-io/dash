@@ -59,6 +59,7 @@ export const App = () => (
         </CustomRoutes>
 
         <Resource name="rausers" list={UserList} edit={EditGuesser} show={ShowGuesser} />
+        <Resource name="sessions" list={UserList} edit={EditGuesser} show={ShowGuesser} />
         
         <Analytics />
     </Admin>
