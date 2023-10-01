@@ -22,7 +22,7 @@ const httpClient = (url: string, options: any = {}) => {
     return fetchUtils.fetchJson(url, options);
 }
 
-const apiRootUrl = 'https://packdir.com/api/dashaishell/session';
+const apiRootUrl = 'https://packdir.com/api/dashaishell/';
 const dataProvider = simpleRestProvider(apiRootUrl, httpClient);
 //const dataProvider = chatDataProvider(apiRootUrl, httpClient);
 
@@ -59,10 +59,11 @@ export const App = () => (
             <Route path="/chat" element={<ChatPage />} />
         </CustomRoutes>
 
-        <Resource name="sessions" list={SessionList} edit={EditGuesser} show={ShowGuesser} />
-        <Resource name="rausers" list={UserList} edit={EditGuesser} show={ShowGuesser} />
+        <Resource name="session" list={SessionList} edit={EditGuesser} show={ShowGuesser} />
         
         <Analytics />
     </Admin>
 
 );
+
+        //<Resource name="rausers" list={UserList} edit={EditGuesser} show={ShowGuesser} />
