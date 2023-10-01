@@ -22,7 +22,7 @@ const httpClient = (url: string, options: any = {}) => {
     return fetchUtils.fetchJson(url, options);
 }
 
-const apiRootUrl = 'https://packdir.com/api/dashaishell/';
+const apiRootUrl = 'https://packdir.com/api/dashaishell';
 const dataProvider = simpleRestProvider(apiRootUrl, httpClient);
 //const dataProvider = chatDataProvider(apiRootUrl, httpClient);
 
