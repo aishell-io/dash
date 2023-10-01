@@ -3,6 +3,7 @@ import { Admin, CustomRoutes, Resource, ListGuesser, EditGuesser, ShowGuesser, f
 import { Route } from 'react-router-dom';
 //import { dataProvider } from './dataProvider';
 import { UserList } from './users';
+import { SessionList } from './session-message/session';
 import chatDataProvider from './chat-data-provider'
 
 // Chat
@@ -21,7 +22,7 @@ const httpClient = (url: string, options: any = {}) => {
     return fetchUtils.fetchJson(url, options);
 }
 
-const apiRootUrl = 'https://packdir.com/api/aishell/';
+const apiRootUrl = 'https://packdir.com/api/dashaishell/session';
 const dataProvider = simpleRestProvider(apiRootUrl, httpClient);
 //const dataProvider = chatDataProvider(apiRootUrl, httpClient);
 
@@ -58,7 +59,7 @@ export const App = () => (
             <Route path="/chat" element={<ChatPage />} />
         </CustomRoutes>
 
-        <Resource name="sessions" list={UserList} edit={EditGuesser} show={ShowGuesser} />
+        <Resource name="sessions" list={SessionList} edit={EditGuesser} show={ShowGuesser} />
         <Resource name="rausers" list={UserList} edit={EditGuesser} show={ShowGuesser} />
         
         <Analytics />
