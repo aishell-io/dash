@@ -14,17 +14,19 @@ import ChatPage from './chat/ChatPage';
 import simpleRestProvider from 'ra-data-simple-rest';
 
 const httpClient = (url: string, options: any = {}) => {
-    if (!options.headers) {
-        options.headers = new Headers({ Accept: 'application/json' });
-    }
-    try {
-        const { access_token } = JSON.parse(localStorage.getItem('access_token') || '{}');
-        console.log('1003a', access_token)
-    } catch (e) {
-        console.log('1003e', e)
-    }
-    //options.headers.set('Authorization', `Bearer ${access_token}`);
-    return fetchUtils.fetchJson(url, options);
+  if (!options.headers) {
+    options.headers = new Headers({ Accept: 'application/json' });
+  }
+  try {
+    const at = localStorage.getItem('access_token');
+    console.log('1003at', at)
+    const { access_token } = JSON.parse(localStorage.getItem('access_token') || '{}');
+    console.log('1003a', access_token)
+  } catch (e) {
+    console.log('1003e', e)
+  }
+  //options.headers.set('Authorization', `Bearer ${access_token}`);
+  return fetchUtils.fetchJson(url, options);
 }
 
 const apiRootUrl = 'https://packdir.com/api/dashaishell';
