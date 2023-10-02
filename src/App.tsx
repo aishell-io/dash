@@ -59,7 +59,7 @@ export const App = () => (
             <Route path="/chat" element={<ChatPage />} />
         </CustomRoutes>
 
-        <Resource name="session" list={SessionList} edit={EditGuesser} show={ShowGuesser} />
+        <Resource name="sessions" list={SessionList} edit={EditGuesser} show={ShowGuesser} />
         
         <Analytics />
     </Admin>
