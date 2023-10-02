@@ -17,7 +17,12 @@ const httpClient = (url: string, options: any = {}) => {
     if (!options.headers) {
         options.headers = new Headers({ Accept: 'application/json' });
     }
-    //const { access_token } = JSON.parse(localStorage.getItem('access_token') || '{}');
+    try {
+        const { access_token } = JSON.parse(localStorage.getItem('access_token') || '{}');
+        console.log('1003a', access_token)
+    } catch (e) {
+        console.log('1003e', e)
+    }
     //options.headers.set('Authorization', `Bearer ${access_token}`);
     return fetchUtils.fetchJson(url, options);
 }
