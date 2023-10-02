@@ -23,7 +23,8 @@ const httpClient = (url: string, options: any = {}) => {
 }
 
 const apiRootUrl = 'https://packdir.com/api/dashaishell';
-const dataProvider = simpleRestProvider(apiRootUrl, httpClient);
+const dataProvider = simpleRestProvider(apiRootUrl);
+//const dataProvider = simpleRestProvider(apiRootUrl, httpClient);
 //const dataProvider = chatDataProvider(apiRootUrl, httpClient);
 
 import { authProvider } from './authProvider';
