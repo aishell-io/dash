@@ -18,7 +18,6 @@ const httpClient = (url: string, options: any = {}) => {
     options.headers = new Headers({ Accept: 'application/json' });
   }
   const access_token = localStorage.getItem('access_token');
-  console.log('1004a', access_token)
   options.headers.set('Authorization', `Bearer ${access_token}`);
   return fetchUtils.fetchJson(url, options);
 }
@@ -26,8 +25,6 @@ const httpClient = (url: string, options: any = {}) => {
 const apiRootUrl = 'https://packdir.com/api/dashaishell';
 const dataProvider = simpleRestProvider(apiRootUrl, httpClient);
 //const dataProvider = chatDataProvider(apiRootUrl, httpClient);
-
-import { authProvider } from './authProvider';
 
 import polyglotI18nProvider from 'ra-i18n-polyglot';
 import chineseMessages from '@haxqer/ra-language-chinese';
@@ -46,7 +43,6 @@ import { Register } from './auth/Register';
 export const App = () => (
     <Admin
         i18nProvider={i18nProvider}
-        authProvider={authProvider}
         dataProvider={dataProvider}
         loginPage={Login}
         //loginPage={DashLoginPage}
