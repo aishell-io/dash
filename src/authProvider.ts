@@ -22,7 +22,6 @@ export const authProvider: AuthProvider = {
         })
         .then(({ token }) => {
           localStorage.setItem('access_token', token);
-          //localStorage.setItem('access_token', access_token);
         })
         .catch(() => {
           throw new Error('Network error')
@@ -40,7 +39,6 @@ export const authProvider: AuthProvider = {
 
     checkAuth: () => {
       const access_token = localStorage.getItem('access_token');
-      console.log('check it 904: ', access_token)
       const isLogged = (access_token && access_token.length > 10) ? true : false;
       return isLogged ? Promise.resolve() : Promise.reject();
     },

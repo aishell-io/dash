@@ -17,20 +17,13 @@ const httpClient = (url: string, options: any = {}) => {
   if (!options.headers) {
     options.headers = new Headers({ Accept: 'application/json' });
   }
-  try {
-    const at = localStorage.getItem('access_token');
-    console.log('1003at', at)
-    const { access_token } = JSON.parse(localStorage.getItem('access_token') || '{}');
-    console.log('1003a', access_token)
-  } catch (e) {
-    console.log('1003e', e)
-  }
-  //options.headers.set('Authorization', `Bearer ${access_token}`);
+  const access_token = localStorage.getItem('access_token');
+  console.log('1004a', access_token)
+  options.headers.set('Authorization', `Bearer ${access_token}`);
   return fetchUtils.fetchJson(url, options);
 }
 
 const apiRootUrl = 'https://packdir.com/api/dashaishell';
-//const dataProvider = simpleRestProvider(apiRootUrl);
 const dataProvider = simpleRestProvider(apiRootUrl, httpClient);
 //const dataProvider = chatDataProvider(apiRootUrl, httpClient);
 
