@@ -37,16 +37,20 @@ export const authProvider: AuthProvider = {
       }
       return Promise.resolve();
     },
+
     checkAuth: () => {
-      console.log('check it 817')
-      return localStorage.getItem("access_token")
-        ? Promise.resolve()
-        : Promise.reject();
+      const access_token = localStorage.getItem('access_token');
+      console.log('check it 904: ', access_token)
+      const isLogged = (access_token && access_token.length > 10) ? true : false;
+      return isLogged ? Promise.resolve() : Promise.reject();
     },
+
     logout: () => {
-      localStorage.removeItem("username");
+      //localStorage.removeItem("username");
+      localStorage.removeItem("access_token");
       return Promise.resolve();
     },
+
     //getIdentity: () => Promise.resolve(/* ... */),
     //handleCallback: () => Promise.resolve(/* ... */), // for third-party authentication only
     // authorization
