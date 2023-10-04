@@ -20,8 +20,9 @@ export const authProvider: AuthProvider = {
           }
           return response.json();
         })
-        .then(({ access_token }) => {
-          localStorage.setItem('access_token', access_token);
+        .then(({ token }) => {
+          localStorage.setItem('access_token', token);
+          //localStorage.setItem('access_token', access_token);
         })
         .catch(() => {
           throw new Error('Network error')
