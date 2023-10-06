@@ -38,9 +38,10 @@ export const authProvider: AuthProvider = {
     },
 
     checkAuth: () => {
-      const access_token = localStorage.getItem('access_token');
-      const isLogged = (access_token && access_token.length > 10) ? true : false;
-      return isLogged ? Promise.resolve() : Promise.reject();
+      return Promise.resolve();
+      //const access_token = localStorage.getItem('access_token');
+      //const isLogged = (access_token && access_token.length > 10) ? true : false;
+      //return isLogged ? Promise.resolve() : Promise.reject();
     },
 
     logout: () => {
