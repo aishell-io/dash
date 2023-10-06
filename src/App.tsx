@@ -35,7 +35,7 @@ export const App = () => (
         i18nProvider={i18nProvider}
         authProvider={authProvider}
         dataProvider={dataProvider}
-        loginPage={Login}
+        //loginPage={Login}
         //loginPage={DashLoginPage}
 	>
 
