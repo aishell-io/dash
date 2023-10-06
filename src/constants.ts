@@ -12,6 +12,24 @@ export const API_ROOT: string = 'https://packdir.com/api/aishellio/';
  */
 export const API_REGISTER: string = API_ROOT + 'register';
 
+// Authenticated API
+
+/**
+ * API base URL for authenticated users.
+ * @type {string}
+ */
+export const AUTH_ROOT: string = 'https://packdir.com/api/dashaishell';
+
+// Unauthenticated API
+
+/**
+ * API base URL for unauthenticated users.
+ * @type {string}
+ */
+export const UNAUTH_ROOT: string = 'https://packdir.com/api/dashanony';
+
+// Status codes
+
 /**
  * Status code: Success
  * @type {number}

@@ -2,6 +2,7 @@
 import { Admin, CustomRoutes, Resource, ListGuesser, EditGuesser, ShowGuesser, fetchUtils } from 'react-admin';
 import { Route } from 'react-router-dom';
 //import { dataProvider } from './dataProvider';
+import { dataProvider } from './data-providers/simpleRestProvider';
 import { UserList } from './users';
 import { SessionList } from './session-message/session';
 import chatDataProvider from './chat-data-provider'
@@ -11,19 +12,7 @@ import ChatPage from './chat/ChatPage';
 
 // [Sending Credentials To The API](https://marmelab.com/react-admin/Authentication.html)
 
-import simpleRestProvider from 'ra-data-simple-rest';
 
-const httpClient = (url: string, options: any = {}) => {
-  if (!options.headers) {
-    options.headers = new Headers({ Accept: 'application/json' });
-  }
-  const access_token = localStorage.getItem('access_token');
-  options.headers.set('Authorization', `Bearer ${access_token}`);
-  return fetchUtils.fetchJson(url, options);
-}
-
-const apiRootUrl = 'https://packdir.com/api/dashaishell';
-const dataProvider = simpleRestProvider(apiRootUrl, httpClient);
 //const dataProvider = chatDataProvider(apiRootUrl, httpClient);
 
 import polyglotI18nProvider from 'ra-i18n-polyglot';
