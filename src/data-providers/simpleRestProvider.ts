@@ -26,8 +26,8 @@ const httpClientUnAuth = (url: string, options: any = {}) => {
 let url = UNAUTH_ROOT;
 let httpClient = httpClientUnAuth;
 if (access_token && access_token !== undefined && access_token.length > 10) {
-  url = AUTH_ROOT;
-  httpClient = httpClientAuth;
+  //url = AUTH_ROOT;
+  //httpClient = httpClientAuth;
 }
 
 export const dataProvider = simpleRestProvider(url, httpClient);
