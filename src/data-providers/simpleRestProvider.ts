@@ -19,7 +19,7 @@ const httpClientUnAuth = (url: string, options: any = {}) => {
   if (!options.headers) {
     options.headers = new Headers({ Accept: 'application/json' });
   }
-  options.headers.set('x-request-id', uuid);
+  options.headers.set('x-request-id2', uuid);
   return fetchUtils.fetchJson(url, options);
 }
 
