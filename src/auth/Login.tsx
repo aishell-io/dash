@@ -33,16 +33,16 @@ export const Login = (props: LoginProps) => {
     let backgroundImageLoaded = false;
     const checkAuth = useCheckAuth();
     const navigate = useNavigate();
-    useEffect(() => {
-        checkAuth({}, false)
-            .then(() => {
-                // already authenticated, redirect to the home page
-                navigate('/');
-            })
-            .catch(() => {
-                // not authenticated, stay on the login page
-            });
-    }, [checkAuth, navigate]);
+    //useEffect(() => {
+    //    checkAuth({}, false)
+    //        .then(() => {
+    //            // already authenticated, redirect to the home page
+    //            navigate('/');
+    //        })
+    //        .catch(() => {
+    //            // not authenticated, stay on the login page
+    //        });
+    //}, [checkAuth, navigate]);
 
     const updateBackgroundImage = () => {
         if (!backgroundImageLoaded && containerRef.current) {
