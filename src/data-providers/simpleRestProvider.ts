@@ -32,4 +32,7 @@ if (access_token && access_token !== undefined && access_token.length > 10) {
   url = AUTH_ROOT;
   httpClient = httpClientAuth;
 
+  const uuid1 = crypto.randomUUID();
+  console.log('uuid1: ', uuid1);
+
 export const dataProvider = simpleRestProvider(url, httpClient);
