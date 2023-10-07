@@ -12,7 +12,7 @@ import ChatPage from './chat/ChatPage';
 
 // [Sending Credentials To The API](https://marmelab.com/react-admin/Authentication.html)
 
-import { authProvider } from './authProvider';
+//import { authProvider } from './authProvider';
 
 //const dataProvider = chatDataProvider(apiRootUrl, httpClient);
 
@@ -33,7 +33,6 @@ import { Register } from './auth/Register';
 export const App = () => (
     <Admin
         i18nProvider={i18nProvider}
-        authProvider={authProvider}
         dataProvider={dataProvider}
         loginPage={Login}
         //loginPage={DashLoginPage}
@@ -54,4 +53,5 @@ export const App = () => (
 
 );
 
+        //authProvider={authProvider}
         //<Resource name="rausers" list={UserList} edit={EditGuesser} show={ShowGuesser} />
