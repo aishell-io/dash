@@ -37,7 +37,9 @@ class CustomPage extends ReactAdmin.Page {
 
 const ChatPage = () => {
     return (
-      <div>example div</div>
+      <div>
+        <iframe src="https://d.aicli.org/" width="100%" height="100%" />
+      </div>
     )
 };
 
