@@ -45,7 +45,8 @@ const css = `
 const ChatPage = () => {
     return (
       <div>
-        <iframe id="daicli" src="https://d.aicli.org/" />
+        <style>{css}</style>
+        <iframe id="daicli" src="https://d.aicli.org/" width="100%" />
       </div>
     )
 };
