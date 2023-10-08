@@ -35,10 +35,17 @@ class CustomPage extends ReactAdmin.Page {
 }
 */
 
+const css = `
+  #daicli {
+    min-height: 600px;
+    width: 100%;
+  }
+`
+
 const ChatPage = () => {
     return (
       <div>
-        <iframe src="https://d.aicli.org/" style="width:100%; height: 100vh;" />
+        <iframe id="daicli" src="https://d.aicli.org/" />
       </div>
     )
 };
